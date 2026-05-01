@@ -55,7 +55,7 @@ async function renderList() {
       hideLoadMoreButton();
       return;
     }
-
+    // *Скрол
     createGallery(hits, page);
     const cards = document.querySelectorAll('.gallery-item');
     const firstNewCard = cards[cards.length - hits.length];
@@ -66,6 +66,19 @@ async function renderList() {
         block: 'start',
       });
     }
+
+    // if (page > 1) {
+    //   const card = document.querySelector('.gallery-item');
+
+    //   if (card) {
+    //     const cardHeight = card.getBoundingClientRect().height;
+
+    //     window.scrollBy({
+    //       top: cardHeight * 2,
+    //       behavior: 'smooth',
+    //     });
+    //   }
+    // }
     if (page * 15 >= totalHits) {
       hideLoadMoreButton();
     } else {
