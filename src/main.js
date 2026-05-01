@@ -82,6 +82,10 @@ async function renderList() {
     // }
 
     if (page * 15 >= totalHits) {
+      iziToast.info({
+        message: "We're sorry, but you've reached the end of search results.",
+        position: 'bottomCenter',
+      });
       hideLoadMoreButton();
     } else {
       showLoadMoreButton();
