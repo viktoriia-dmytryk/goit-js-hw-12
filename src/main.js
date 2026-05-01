@@ -57,6 +57,15 @@ async function renderList() {
     }
 
     createGallery(hits, page);
+    const cards = document.querySelectorAll('.gallery-item');
+    const firstNewCard = cards[cards.length - hits.length];
+
+    if (firstNewCard) {
+      firstNewCard.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
     if (page * 15 >= totalHits) {
       hideLoadMoreButton();
     } else {
