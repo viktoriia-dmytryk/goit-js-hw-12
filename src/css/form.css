@@ -1,3 +1,6 @@
+:root {
+  --font-family: 'Montserrat', sans-serif;
+}
 .form {
   padding-top: 36px;
   display: flex;
@@ -29,7 +32,7 @@
   border-color: #000000;
   border-width: 1px;
 }
-.form button {
+.form-button {
   font-size: 16px;
   font-family: Montserrat;
   color: #ffffff;
@@ -138,4 +141,22 @@
 
 .hidden {
   display: none;
+}
+.load-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding-top: 32px;
+}
+.load-btn {
+  font-size: 16px;
+  font: 500 16px / 150% var(--font-family);
+  letter-spacing: 0.04em;
+  color: #fff;
+  background-color: #4e75ff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  height: 40px;
+  margin: 0 auto;
 }

@@ -3,6 +3,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryEl = document.querySelector('.gallery');
 const loaderEl = document.querySelector('.loader');
+const loadBtn = document.querySelector('.load-btn');
 
 const lightbox = new SimpleLightbox('.gallery a', {
   overlayOpacity: 0.9,
@@ -36,7 +37,7 @@ export function createGallery(images) {
     )
     .join('');
 
-  galleryEl.innerHTML = markup;
+  galleryEl.insertAdjacentHTML('beforeend', markup);
 
   lightbox.refresh();
 }
@@ -51,4 +52,12 @@ export function showLoader() {
 
 export function hideLoader() {
   loaderEl.classList.add('hidden');
+}
+
+export function showLoadMoreButton() {
+  loadBtn.classList.remove('hidden');
+}
+
+export function hideLoadMoreButton() {
+  loadBtn.classList.add('hidden');
 }
