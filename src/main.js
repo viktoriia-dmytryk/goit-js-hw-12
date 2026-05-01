@@ -30,7 +30,7 @@ const onFormSubmit = async event => {
   query = event.target.elements['search-text'].value.trim();
   if (!query) return;
   page = 1;
-
+  hideLoadMoreButton();
   clearGallery();
   await renderList();
 
@@ -40,6 +40,7 @@ const onFormSubmit = async event => {
 form.addEventListener('submit', onFormSubmit);
 async function renderList() {
   showLoader();
+  hideLoadMoreButton();
   try {
     const { hits, totalHits } = await getImagesByQuery(query, page);
 
@@ -52,7 +53,7 @@ async function renderList() {
         messageSize: '16px',
         messageColor: 'white',
       });
-      hideLoadMoreButton();
+
       return;
     }
     // *Скрол
@@ -72,13 +73,14 @@ async function renderList() {
 
     //   if (card) {
     //     const cardHeight = card.getBoundingClientRect().height;
-
+    //     console.log(cardHeight);
     //     window.scrollBy({
     //       top: cardHeight * 2,
     //       behavior: 'smooth',
     //     });
     //   }
     // }
+
     if (page * 15 >= totalHits) {
       hideLoadMoreButton();
     } else {
